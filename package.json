@@ -1,5 +1,5 @@
 {
-  "name": "cypress-common",
+  "name": "@m4rri4nne/cypress-common",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,8 @@
   "devDependencies": {
     "cypress": "^14.5.1",
     "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
