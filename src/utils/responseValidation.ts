@@ -8,12 +8,12 @@ type ResponseBody = {
 }
 
 export class ResponseValidation{
-    reponseValidation(requestBody: ResponseBody, responseBody: ResponseBody): void{
-        expect(requestBody.id).to.equal(responseBody.id);
-        expect(requestBody.title).to.equal(responseBody.title);
-        expect(requestBody.description).to.equal(responseBody.description);
-        expect(requestBody.pageCount).to.equal(responseBody.pageCount);
-        expect(requestBody.excerpt).to.equal(responseBody.excerpt);
-        expect(requestBody.publishDate).to.equal(responseBody.publishDate);
+    responseValidation(requestBody: ResponseBody, responseBody: ResponseBody): void{
+    for (const key in requestBody) {
+            // Check that the property exists in the response
+            expect(responseBody, `Response should have property '${key}'`).to.have.property(key);
+            // Check that values match
+            expect(responseBody[key as keyof ResponseBody], `Property '${key}' should match`).to.equal(requestBody[key as keyof ResponseBody]);
+        }
     }
 }
